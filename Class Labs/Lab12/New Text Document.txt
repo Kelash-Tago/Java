@@ -1,0 +1,65 @@
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.border.LineBorder;
+import java.awt.event.*;
+//import java.util.EventListener.*;
+
+
+
+public class Activity2 extends JFrame{
+	JLabel label;
+	 public Activity2(){
+		setTitle("MouseListener Example");
+		setSize(400,300);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			setLayout(null);
+			label=new JLabel("Click or Hover the mouse here");
+			label.setBounds(100,100,200,30);
+			add(label);
+			
+			Myclass obj =new Myclass(); 
+			
+			label.addMouseListener(obj);
+			
+			setVisible(true);
+	}
+	
+	
+	class Myclass extends MouseAdapter{
+		
+		// check by commenting method
+	
+	@Override
+	public void mouseClicked(MouseEvent e){
+		label.setText("Mouse Clicked ");
+	}
+	
+	@Override
+	public void mouseEntered(MouseEvent e){
+		label.setText("Mouse Enetred");
+	}
+	
+	@Override
+	public void mousePressed(MouseEvent e){
+		label.setText("Mouse mousePressed ");
+	}
+	
+	@Override
+	public void mouseExited(MouseEvent e){
+		label.setText("Mouse Exited");
+	}
+	
+	
+	@Override
+	public void mouseReleased(MouseEvent e){
+		label.setText("Mouse Released");
+	}
+	
+	
+	}
+	
+	public static void main(String args[]){
+		new Activity2();
+	}
+}
+
